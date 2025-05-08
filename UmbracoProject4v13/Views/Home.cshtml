@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+  @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+  @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Main.cshtml";
+}
+@await Html.GetBlockGridHtmlAsync(Model, "headerC")
+ @await Html.GetBlockGridHtmlAsync(Model, "main")
+
+@await Html.PartialAsync("portfolio")
+@await Html.PartialAsync("About")

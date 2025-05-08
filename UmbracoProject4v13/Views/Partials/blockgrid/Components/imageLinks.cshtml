@@ -1,0 +1,23 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem<ContentModels.ImageLinks>>
+
+@{
+    const int TITLE_AREA = 0;
+    const int CONTENT_AREA = 1;
+}
+
+<!-- Portfolio Section-->
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        @if (Model.Areas.Count() > TITLE_AREA)
+        {
+            @await Html.GetBlockGridItemAreaHtmlAsync(Model.Areas.ElementAt(TITLE_AREA))
+        }
+
+        <div class="row justify-content-center">
+            @if (Model.Areas.Count() > CONTENT_AREA)
+            {
+                @await Html.GetBlockGridItemAreaHtmlAsync(Model.Areas.ElementAt(CONTENT_AREA))
+            }
+        </div>
+    </div>
+</section>
